@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Clase de repaso CRUD</title>
+</head>
+
+<body>
+    <h1>INICIO</h1>
+
+    <h2>Usuarios registrados</h2>
+
+    <section>
+        <% for( let i = 0; i < users.length; i++ ) { %>
+            <a href="/users/detail/<%= users[i].id %> ">
+                <p>ID: <%= users[i].id %> </p>
+                <p>Nombre: <%= users[i].nombre %></p>
+                <p>Apellido: <%= users[i].apellido %></p>
+                <p>Edad: <%= users[i].edad %></p>
+            </a>
+        <% } %>
+    
+    </section>
+
+    <!-- <a href="/users/register">Nuevo Usuario</a> -->
+
+    <form action="/users/register" method="get">
+        <button type="submit">
+            Nuevo Usuario
+        </button>
+    </form>
+
+</body>
+
+</html>

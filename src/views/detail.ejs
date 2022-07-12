@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Clase de repaso CRUD</title>
+</head>
+
+<body>
+    <h1>Detalle del usuario</h1>
+
+    <h2></h2>
+
+    <section>
+    
+        <a href="#">
+            <p>ID: <%= user.id %> </p>
+            <p>Nombre: <%= user.nombre %></p>
+            <p>Apellido: <%= user.apellido %></p>
+            <p>Edad: <%= user.edad %></p>
+        </a>
+    </section>
+
+    <form action="../edit/<%= user.id %>" method="get">
+        <button class="editar type="submit">
+            Editar
+        </button>
+    </form>
+    <form action="../delete/<%= user.id %>?_method=delete" method="post">
+        <button class="eliminar" type="submit">
+            Eliminar
+        </button>
+    </form>
+
+</body>
+
+</html>
