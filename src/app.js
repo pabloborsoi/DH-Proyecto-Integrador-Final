@@ -13,11 +13,11 @@ const productRouter = require ('./routes/productRouter');
 const registerRouter = require ('./routes/registerRouter');
 const usersRouter = require ('./routes/usersRouter');
 
-app.use('/', mainRouter);
-app.use('/login', usersRouter);
-app.use('/register', usersRouter);
-app.use('/cart', mainRouter);
-app.use('/product', mainRouter);
+app.use(mainRouter);
+app.use(usersRouter);
+app.use(usersRouter);
+app.use(mainRouter);
+app.use(mainRouter);
 
 app.listen(3030, ()=> console.log('Servidor funcionando'));
 app.set('view engine', 'ejs');
