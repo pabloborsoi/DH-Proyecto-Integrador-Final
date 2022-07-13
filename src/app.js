@@ -14,10 +14,10 @@ const registerRouter = require ('./routes/registerRouter');
 const usersRouter = require ('./routes/usersRouter');
 
 app.use(mainRouter);
+app.use(productRouter);
 app.use(usersRouter);
-app.use(usersRouter);
-app.use(mainRouter);
-app.use(mainRouter);
+//app.use(adminRouter);
+//app.use(registerRouter);
 
 app.listen(3030, ()=> console.log('Servidor funcionando'));
 app.set('view engine', 'ejs');

@@ -7,4 +7,5 @@ const mainController = require('../controllers/mainController');
 
 // CONFIFURACION DE RUTAS Y METODOS
 mainRouter.get('/', mainController.home);
+
 module.exports = mainRouter;

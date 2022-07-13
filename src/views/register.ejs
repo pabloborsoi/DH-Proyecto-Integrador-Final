@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Clase de repaso CRUD</title>
+    
+    <%- include ("./partials/head.ejs")  %>
+
 </head>
 
 <body>
-    <h1>Nuevo registro</h1>
+    <header>
+        
+        <%- include ("./partials/header.ejs")  %>
 
-    <h2>Completar datos</h2>
+    </header>
 
+    <main>
+        <section class="register-title">
+            <a class="session-title" href="login">Iniciar Sesión</a>
+            <p class="session-register">Registrarme<p>
+        </section>        
+        <section class="register-data">
+        <form action="/" method="POST">
+        <div class="register-type">
+            <label for="name">*Nombre</label><br>
+            <input type="text" id="name" name="name" placeholder="">
+        </div>
+        <div class="register-type">
+            <label for="surname">*Apellido</label><br>
+            <input type="text" id="" name="surname" placeholder="">
+        </div>
+        <div class="register-type">
+            <label for="email">*Email</label><br>
+            <input type="email" id="user-email" name="user-email" placeholder="" value="">
+        </div>
+        <div class="register-type">
+            <label for="password">*Contraseña (mínimo 8 caracteres)</label><br>
+            <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" value="">
+        </div>
+        <div class="register-type">
+            <label for="repeat-password">*Confirmar Contraseña</label><br>
+            <input type="password" id="repeat-password" name="repeat-password" placeholder="Repita su contraseña" value="">
+        </div>
+        <div class="register-type">
+            <input type="checkbox" id="agreement" name="agreement" value="">
+            <label for="agreement"><a href="#">Póliticas de Privacidad</a> y <a href="#">Términos y Condiciones</a></label><br>
+            
+        </div>
+        <div class="register-type">
+            <input class="submit-btn"  type="submit" value="Crear mi cuenta">
+        </div>
+        </form>
+        </section>
+    </main>
 
-    <form class="register" action="/users/register" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre">
-        <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" id="apellido">
-        <label for="edad">Edad:</label>
-        <input type="text" name="edad" id="edad">
-        <button type="submit">Guardar</button>
-    </form>
-
-
+    <footer class="footer">
+        
+        <%- include ("./partials/footer.ejs")  %>
+        
+    </footer>  
 </body>
-
 </html>
