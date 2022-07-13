@@ -1,8 +1,9 @@
 const express = require('express');
 const productRouter = express.Router();
+const path = require('path');
 
 // REQUERIMOS EL CONTROLADOR PARA DESPUES ACCEDER A SUS METODOS
-const mainController = require('../controllers/productController');
+const productController = require('../controllers/productController');
 
 productRouter.get('/cart', productController.cart);
 productRouter.get('/product', productController.product);

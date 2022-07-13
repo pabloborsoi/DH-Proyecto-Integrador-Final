@@ -1,9 +1,18 @@
 // REQUERIMOS LA BASE DE DATOS
 let users = require("../data/users");
-
+const path = require('path');
+const fs = require ('fs');
 
 // CREAMOS LOS METODOS DEL CONTROLADOR
 const usersController = {
+
+        login: function (req, res) {
+            res.render('login');
+        },
+        register: function (req, res) {
+            res.render('register')
+        },
+
 	edit: (req, res) => {
         // 1- CAPTURAMOS EL ID
         // 2- RECORREMOS LOS USUARIOS Y BUSCAMOS LA COINCIDENCIA

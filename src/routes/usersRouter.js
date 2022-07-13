@@ -1,9 +1,13 @@
 const express = require('express');
-const usersRouter = express.Router()
+const usersRouter = express.Router();
+const path = require('path');
 
 // REQUERIMOS EL CONTROLADOR PARA DESPUES ACCEDER A SUS METODOS
 const usersController = require("../controllers/usersController")
 
+
+usersRouter.get('/login', usersController.login);
+usersRouter.post('/login', usersController.login);
 
 // CONFIFURACION DE RUTAS Y METODOS
 
