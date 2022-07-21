@@ -1,23 +1,21 @@
 const express = require('express');
 const path = require('path')
 const app = express();
+const session = require('express-session')
 
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
 //app.use(express.urlencoded({ extended: false }));
 
 //Requerir las rutas
-const adminRouter = require ('./routes/adminRouter');
 const mainRouter = require ('./routes/mainRouter');
 const productRouter = require ('./routes/productRouter');
-const registerRouter = require ('./routes/registerRouter');
 const usersRouter = require ('./routes/usersRouter');
 
 app.use(mainRouter);
 app.use(productRouter);
 app.use(usersRouter);
-//app.use(adminRouter);
-//app.use(registerRouter);
+
 
 app.listen(3030, ()=> console.log('Servidor funcionando'));
 app.set('view engine', 'ejs');

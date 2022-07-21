@@ -9,10 +9,6 @@ const usersController = {
         login: function (req, res) {
             res.render('login');
         },
-        register: function (req, res) {
-            res.render('register')
-        },
-
 	edit: (req, res) => {
         // 1- CAPTURAMOS EL ID
         // 2- RECORREMOS LOS USUARIOS Y BUSCAMOS LA COINCIDENCIA
@@ -26,6 +22,27 @@ const usersController = {
         })
 		res.render("edit", {user: userSelected});
 	},
+    ingresar: (req,res) =>{
+        const errors = validationResult(req);
+        //return res.send(errors.mapped());
+        if(errors.isEmpty()){
+          let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/users.json')));
+          let usuarioLogueado = archivoUsuarios.find(usuario => usuario.email == req.body.email)
+          //return res.send(usuarioLogueado);
+          //Como podemos modificar nuestros req.body
+          delete usuarioLogueado.password;
+          req.session.usuario = usuarioLogueado;  //Guardar del lado del servidor
+          //Aquí voy a guardar las cookies del usuario que se loguea
+          if(req.body.recordarme){
+            res.cookie('email',usuarioLogueado.email,{maxAge: 1000 * 60 * 60 * 24})
+          }
+          return res.redirect('/');   //Aquí ustedes mandan al usuario para donde quieran (Perfil- home - a donde deseen)
+  
+        }else{
+          //Devolver a la vista los errores
+          res.render(path.resolve(__dirname, '../views/partials/login'),{errors:errors.mapped(),old:req.body});        
+        }
+      },
 	register: (req, res) => {
         // RENDERIZAMOS EL FORMULARIO DE REGISTRO
 		res.render("register");
